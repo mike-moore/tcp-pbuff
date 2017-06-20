@@ -1,0 +1,24 @@
+syntax = "proto2";
+
+message WayPoint {
+    required float Heading = 1;
+    required float Distance = 2;
+    required string Name = 3;
+}
+
+message IdValuePairFloat {
+    required uint32 Id = 1;
+    optional float Value = 2;
+}
+
+message CommandPacket {
+    optional WayPoint WayPointCmd = 1;
+    repeated IdValuePairFloat RoverCmds = 2;
+}
+
+message TelemetryPacket {
+    required float MeasuredHeading = 1;
+    required float MeasuredDistance = 2;
+    repeated IdValuePairFloat RoverStatus = 3;
+    optional string ActiveWayPoint = 4;
+}
